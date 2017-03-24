@@ -1,7 +1,7 @@
 import *  as injectTapEventPlugin from "react-tap-event-plugin";
 import { createStore } from "redux";
 import * as React from "react";
-import { TideApp } from "../components/App";
+import { CraigsApp } from "../components/App";
 import * as ReactDOMServer from "react-dom/server";
 import { HTML } from "../components/universal/html";
 import createServerRenderContext from "react-router/createServerRenderContext";
@@ -40,7 +40,7 @@ export default () => (request, response) => {
                 <MuiThemeProvider muiTheme={getMuiTheme({ userAgent: userAgent })}>
                     <Provider store={the}>
                         <StaticRouter location={request.url} context={context}>
-                            <TideApp userAgent={userAgent} />
+                            <CraigsApp userAgent={userAgent} />
                         </StaticRouter>
                     </Provider>
                 </MuiThemeProvider>

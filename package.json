@@ -119,7 +119,7 @@
     "svg-react-loader": "0.4.0-beta.2",
     "sw-precache-webpack-plugin": "0.8.0",
     "ts-loader": "1.3.3",
-    "tslint": "4.3.0-dev.0slick",
+    "tslint": "4.3.0-dev.0",
     "tslint-loader": "3.3.0",
     "typescript": "2.1.4",
     "url-loader": "0.5.7",

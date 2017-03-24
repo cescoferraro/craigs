@@ -1,4 +1,4 @@
-# eat.cescoferraro.xyz
+# craigs.cescoferraro.xyz
 
 ### Features
 
@@ -7,10 +7,7 @@
 * Real time data sync on ALL opened browser by [Firebase](https://firebase.google.com/).
 You change it, they see it NOW.
 
-* Brand story presentation is the website itself. Courtesy of [Spectacle by FormidableLabs](https://github.com/FormidableLabs/spectacle). How?
-Navigating to `eat.cescoferraro.xyz/#/?presentation` will controll all tabs opened on your computer at `eat.cescoferraro.xyz`. So you can cast any one of those tabs to any display your computer can reach while controling your presentation.
-
-
+* THis is intended to be a sites the place adds. Similar to craigslist, but with 2017 web tech.
 
 
 

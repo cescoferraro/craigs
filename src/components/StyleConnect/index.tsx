@@ -2,6 +2,8 @@ import * as React from "react";
 import * as hoistStatics from "hoist-non-react-statics";
 
 
+
+
 export const StyleConnect = (...styles) => {
     return (ComposedComponent) => {
 
@@ -9,7 +11,7 @@ export const StyleConnect = (...styles) => {
             || ComposedComponent.name || 'Component';
 
 
-        class WithStyles extends React.Component<any,any> {
+        class WithStyles extends React.Component<any, any> {
             displayName = `WithStyles(${displayName})`;
             ComposedComponent = ComposedComponent;
             removeCss;
@@ -35,4 +37,3 @@ export const StyleConnect = (...styles) => {
         return hoistStatics(WithStyles, ComposedComponent);
     };
 };
-

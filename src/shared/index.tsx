@@ -2,12 +2,13 @@ export const tag = document.getElementById("container");
 
 export const isServer = () => !(typeof window !== "undefined" && window.document);
 
+
 export const FIREBASE_CONFIG = {
-    apiKey: "AIzaSyBxg-ZN4_K2t1pUXWeXL9hwzl42LO94McY",
-    authDomain: "weareeat-9fd66.firebaseapp.com",
-    databaseURL: "https://weareeat-9fd66.firebaseio.com",
-    storageBucket: "weareeat-9fd66.appspot.com",
-    messagingSenderId: "677035655043"
+    apiKey: "AIzaSyCR1eRcu-FHxG6Yp1RarrBq1wKWWi8Ha2k",
+    authDomain: "craigs-8e724.firebaseapp.com",
+    databaseURL: "https://craigs-8e724.firebaseio.com",
+    storageBucket: "craigs-8e724.appspot.com",
+    messagingSenderId: "794041684762"
 };
 
 export const guid = () => {

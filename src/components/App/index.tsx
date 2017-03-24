@@ -10,19 +10,13 @@ import { AsyncToaster } from "../Toaster/async";
 
 
 
-export const TideApp = ({ userAgent }) => {
+export const CraigsApp = ({ userAgent }) => {
     return (
-
         <div>
-            <Route path="/sjkdfn" component={AsyncHome(userAgent)} />
-            <Route exact path="/" component={AsyncHome(userAgent)} />
-            <Route component={AsyncAppBar(userAgent)} />
-            <Route component={AsyncToaster(userAgent)} />
-            <Switch>
-                <Route exact path="/admin" component={AsyncLogin(userAgent)} />
-                <Route exact path="/login" component={AsyncLogin(userAgent)} />
-                <Route path="/dashboard" component={AsyncDashboard(userAgent)} />
-            </Switch>
+            <Route exact path="/" component={() => <div>
+                <h2>Here!</h2>
+
+            </div>} />
         </div>
     )
 };
