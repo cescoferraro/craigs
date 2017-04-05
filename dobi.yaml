@@ -1,5 +1,5 @@
 meta:
-    project: eat
+    project: craigs
     default: production
     include: ['./build/dobi/jobs.yaml',
               './build/dobi/images.yaml',
@@ -13,11 +13,3 @@ env=vars:
 mount=source:
     bind: .
     path: /srv/eat
-
-
-
-
-
-
-
-

@@ -1,6 +1,6 @@
 const app = require("express")();
 const webpack = require('webpack');
-const compiler = webpack.(require('./build/webpack/dev.js'));
+const compiler = webpack(require('./build/webpack/dev.js'));
 app.use(require('webpack-dev-middleware')(compiler));
 app.use(require('webpack-hot-middleware')(compiler.compilers.find(compiler => compiler.name === 'client')));
 app.use(require('webpack-hot-server-middleware')(compiler, {chunkName: 'server'}));

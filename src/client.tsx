@@ -1,7 +1,7 @@
 import { tag } from "./shared";
 import * as React from "react";
 import * as injectTapEventPlugin from "react-tap-event-plugin";
-import { CraigsApp } from "./components/App";
+import { CraigsApp } from "./app";
 import { Renderer } from "./shared/render";
 import { unmountComponentAtNode } from "react-dom";
 injectTapEventPlugin();

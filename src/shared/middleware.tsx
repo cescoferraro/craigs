@@ -1,7 +1,7 @@
 import *  as injectTapEventPlugin from "react-tap-event-plugin";
 import { createStore } from "redux";
 import * as React from "react";
-import { CraigsApp } from "../components/App";
+import { CraigsApp } from "../app";
 import * as ReactDOMServer from "react-dom/server";
 import { HTML } from "../components/universal/html";
 import createServerRenderContext from "react-router/createServerRenderContext";
