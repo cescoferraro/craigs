@@ -1,0 +1,10 @@
+const compression = require('compression');
+const express = require('express');
+const morgan = require('morgan');
+const app = express();
+app.disable('x-powered-by');
+app.use(compression());
+app.use(express.static("www"));
+app.use(morgan("combined"));
+app.use(require("./middleware").default());
+app.listen(4000);

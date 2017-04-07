@@ -1,9 +1,9 @@
 meta:
     project: craigs
     default: production
-    include: ['./build/dobi/jobs.yaml',
-              './build/dobi/images.yaml',
-              './build/dobi/watch.yaml']
+    include: ['./internal/dobi/jobs.yaml',
+              './internal/dobi/images.yaml',
+              './internal/dobi/watch.yaml']
 
 
 env=vars:
