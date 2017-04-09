@@ -1,18 +1,21 @@
 import *  as injectTapEventPlugin from "react-tap-event-plugin";
 import { createStore } from "redux";
 import * as React from "react";
-import { TideApp } from "../app";
+import { TideApp } from "./app";
 import * as ReactDOMServer from "react-dom/server";
-import { HTML } from "../components/universal/html";
+import { HTML } from "./components/html/html";
 import createServerRenderContext from "react-router/createServerRenderContext";
 import { Provider } from "react-redux";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import getMuiTheme from "material-ui/styles/getMuiTheme";
-import { UniversalStyleProvider } from "../components/UniversalStyleProvider";
+import { UniversalStyleProvider } from "./shared/components/UniversalStyleProvider";
 import { StyleRoot } from "radium";
 import { withAsyncComponents } from "react-async-component";
 import { StaticRouter } from "react-router-dom";
 injectTapEventPlugin();
+
+
+console.log("hello")
 
 
 export default () => (request, response) => {

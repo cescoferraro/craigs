@@ -3,12 +3,12 @@ import MDAppBar from "material-ui/AppBar";
 import IconButton from "material-ui/IconButton";
 import Pizza from "material-ui/svg-icons/maps/local-pizza";
 import ArrowBack from "material-ui/svg-icons/action/exit-to-app";
-import {compose} from "recompose";
-import {StyleConnect} from "../../components/StyleConnect";
-import {connect} from "react-redux";
-import {APP_ACTIONS} from "../../store/actions";
+import { compose } from "recompose";
+import { StyleConnect } from "../../shared/components/StyleConnect";
+import { connect } from "react-redux";
+import { APP_ACTIONS } from "../../store/actions";
 
-const css = require("./shell.pcss");
+const css = require("./appbar.pcss");
 
 export const AppBar = compose(
     StyleConnect(css),
@@ -18,20 +18,20 @@ export const AppBar = compose(
             app: state.app
         }
     ), APP_ACTIONS)
-)(({location, LOGOUT, firebase}) => {
+)(({ location, LOGOUT, firebase }) => {
     return location.pathname === "/" ? null :
         <MDAppBar
             className={css.shell}
-            title={<span >Eat Admin Panel</span>}
-            iconElementLeft={<IconButton><Pizza/></IconButton>}
-            iconElementRight={<LogoutButton relay={{firebase,LOGOUT}}/>}
+            title={<span >Craigs Admin Panel</span>}
+            iconElementLeft={<IconButton><Pizza /></IconButton>}
+            iconElementRight={<LogoutButton relay={{ firebase, LOGOUT }} />}
         />
 });
 
 
-const LogoutButton = ({relay}) => {
+const LogoutButton = ({ relay }) => {
     return relay.firebase.get("auth") != null ?
         <IconButton onClick={relay.LOGOUT}>
             <ArrowBack />
-        </IconButton>: null;
+        </IconButton> : null;
 };

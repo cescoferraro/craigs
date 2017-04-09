@@ -1,0 +1,2 @@
+This is where I keep all static assets.
+Please keep it tidy!

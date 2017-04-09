@@ -1,9 +1,7 @@
-
 import * as React from "react";
 import withStyles from "isomorphic-style-loader/lib/withStyles";
 import { connect } from "react-redux";
 import { firebaseConnect, dataToJS } from "react-redux-firebase";
-import { LoginButton } from "../../components/LoginButton/login.button";
 import { compose } from "recompose";
 
 
