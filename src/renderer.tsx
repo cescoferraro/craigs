@@ -4,7 +4,7 @@ import { AppContainer as HMRProvider } from "react-hot-loader";
 import { render } from "react-dom";
 import { Provider as ReduxProvider } from "react-redux";
 import getMuiTheme from "material-ui/styles/getMuiTheme";
-import { store } from "./store/store";
+import { clientStore } from "./store/store";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import { BrowserRouter } from "react-router-dom";
 import { createBrowserHistory } from "history";
@@ -16,7 +16,7 @@ export const Renderer = NextEatApp => {
     let app = <HMRProvider>
         <UniversalStyleProvider onInsertCss={styles => styles._insertCss()}>
             <MuiThemeProvider muiTheme={getMuiTheme({ userAgent: navigator.userAgent })}>
-                <ReduxProvider store={store(history)}>
+                <ReduxProvider store={clientStore(history)}>
                     <ReduxRouterProvider history={history}>
                         {NextEatApp}
                     </ReduxRouterProvider>

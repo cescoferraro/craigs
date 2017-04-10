@@ -7,3 +7,9 @@ interface Action<T> {
     error?: boolean;
     meta?: any;
 }
+
+type add = {
+    title: string;
+    price: number;
+    description: string;
+}

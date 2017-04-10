@@ -1,6 +1,6 @@
 import { createAsyncComponent } from "react-async-component";
 import * as React from "react";
-import { Spinner } from "../../components/spinner/index";
+import { Spinner } from "../../shared/components/spinner/index";
 
 export const AsyncAppBar = userAgent => createAsyncComponent({
     resolve: () => new Promise(resolve =>

@@ -3,10 +3,11 @@ import { createAsyncComponent } from "react-async-component";
 import { Route, IndexRoute, Router, Switch, Link } from "react-router-dom";
 import { AsyncHome } from "./containers/home/async";
 import { AsyncAppBar } from "./containers/appbar/async";
-import { AsyncToaster } from "./components/Toaster/async";
+import { AsyncToaster } from "./shared/components/Toaster/async";
 
 
-export const TideApp = ({ userAgent }) => {
+
+export const CraigsApp = ({ userAgent }) => {
     return (
         <div>
             <Route exact path="/" component={AsyncHome(userAgent)} />

@@ -1,12 +1,12 @@
 import { tag } from "./shared/utils";
 import * as React from "react";
 import * as injectTapEventPlugin from "react-tap-event-plugin";
-import { TideApp } from "./app";
+import { CraigsApp } from "./app";
 import { Renderer } from "./renderer";
 import { unmountComponentAtNode } from "react-dom";
 injectTapEventPlugin();
 
-Renderer(TideApp({ userAgent: navigator.userAgent }));
+Renderer(CraigsApp({ userAgent: navigator.userAgent }));
 
 if (module.hot) {
     module.hot.accept(
@@ -17,8 +17,8 @@ if (module.hot) {
         ],
         () => {
             unmountComponentAtNode(tag);
-            const NextEatApp = require("./app.tsx").TideApp;
+            const NextCraigsApp = require("./app.tsx").CraigsApp;
             const NewRenderer = require("./renderer.tsx").Renderer;
-            NewRenderer(NextEatApp({ userAgent: navigator.userAgent }));
+            NewRenderer(NextCraigsApp({ userAgent: navigator.userAgent }));
         });
 }

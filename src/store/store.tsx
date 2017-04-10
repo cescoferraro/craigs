@@ -1,16 +1,19 @@
-import {allReducers} from "./reducers";
-import {createStore, applyMiddleware, compose} from "redux";
-import {reactReduxFirebase, firebaseStateReducer} from "react-redux-firebase";
-import {createEpicMiddleware} from "redux-observable";
-import {RootEpic} from "./epics";
-import {routerMiddleware, connectRouter} from "connected-react-router";
-import {startup} from "./startup";
+import { allReducers } from "./reducers";
+import { createStore, applyMiddleware, compose } from "redux";
+import { reactReduxFirebase, firebaseStateReducer } from "react-redux-firebase";
+import { createEpicMiddleware } from "redux-observable";
+import { RootEpic } from "./epics";
+import { routerMiddleware, connectRouter } from "connected-react-router";
+import { startup } from "./startup";
 
 
 let config = {
-    apiKey: "AIzaSyBxg-ZN4_K2t1pUXWeXL9hwzl42LO94McY",
-    authDomain: "weareeat-9fd66.firebaseapp.com",
-    databaseURL: "https://weareeat-9fd66.firebaseio.com"
+    apiKey: "AIzaSyCR1eRcu-FHxG6Yp1RarrBq1wKWWi8Ha2k",
+    authDomain: "craigs-8e724.firebaseapp.com",
+    databaseURL: "https://craigs-8e724.firebaseio.com",
+    projectId: "craigs-8e724",
+    storageBucket: "craigs-8e724.appspot.com",
+    messagingSenderId: "794041684762"
 };
 
 
@@ -22,8 +25,7 @@ const FirebaseStoreCreator = compose(
 let ReplacebleEpicMiddleware = createEpicMiddleware(RootEpic);
 
 
-export const store = (history) => {
-
+export const clientStore = (history) => {
     const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
     let store = FirebaseStoreCreator(
         connectRouter(history)(allReducers),
