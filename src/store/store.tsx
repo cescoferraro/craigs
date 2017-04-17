@@ -5,23 +5,10 @@ import { createEpicMiddleware } from "redux-observable";
 import { RootEpic } from "./epics";
 import { routerMiddleware, connectRouter } from "connected-react-router";
 import { startup } from "./startup";
+import { FIREBASE_CONFIG } from "../shared/utils";
 
 
-let config = {
-    apiKey: "AIzaSyCR1eRcu-FHxG6Yp1RarrBq1wKWWi8Ha2k",
-    authDomain: "craigs-8e724.firebaseapp.com",
-    databaseURL: "https://craigs-8e724.firebaseio.com",
-    projectId: "craigs-8e724",
-    storageBucket: "craigs-8e724.appspot.com",
-    messagingSenderId: "794041684762"
-};
-
-
-const FirebaseStoreCreator = compose(
-    reactReduxFirebase(config)
-)(createStore);
-
-
+const FirebaseStoreCreator = compose(reactReduxFirebase(FIREBASE_CONFIG))(createStore);
 let ReplacebleEpicMiddleware = createEpicMiddleware(RootEpic);
 
 
@@ -31,8 +18,7 @@ export const clientStore = (history) => {
         connectRouter(history)(allReducers),
         startup,
         composeEnhancers(
-            applyMiddleware(
-                routerMiddleware(history),
+            applyMiddleware(routerMiddleware(history),
                 ReplacebleEpicMiddleware)
         ));
     if (module.hot) {
@@ -45,7 +31,5 @@ export const clientStore = (history) => {
             ReplacebleEpicMiddleware.replaceEpic(nextRootEpic);
         });
     }
-
-
     return store
 };

@@ -8,6 +8,8 @@ import { StyleConnect } from "../../shared/components/StyleConnect";
 import { connect } from "react-redux";
 import { APP_ACTIONS } from "../../store/actions";
 
+import { LogoutButton } from "./logout.button";
+
 const css = require("./appbar.pcss");
 
 export const AppBar = compose(
@@ -19,19 +21,11 @@ export const AppBar = compose(
         }
     ), APP_ACTIONS)
 )(({ location, LOGOUT, firebase }) => {
-    return location.pathname === "/" ? null :
+    return location.pathname === "/jkfnds" ? null :
         <MDAppBar
             className={css.shell}
-            title={<span >Craigs Admin Panel</span>}
+            title={<span >Craigs </span>}
             iconElementLeft={<IconButton><Pizza /></IconButton>}
             iconElementRight={<LogoutButton relay={{ firebase, LOGOUT }} />}
         />
 });
-
-
-const LogoutButton = ({ relay }) => {
-    return relay.firebase.get("auth") != null ?
-        <IconButton onClick={relay.LOGOUT}>
-            <ArrowBack />
-        </IconButton> : null;
-};

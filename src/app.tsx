@@ -6,13 +6,12 @@ import { AsyncAppBar } from "./containers/appbar/async";
 import { AsyncToaster } from "./shared/components/Toaster/async";
 
 
-
 export const CraigsApp = ({ userAgent }) => {
     return (
         <div>
-            <Route exact path="/" component={AsyncHome(userAgent)} />
             {/* This always render the AppBar*/}
             <Route component={AsyncAppBar(userAgent)} />
+            <Route exact path="/" component={AsyncHome(userAgent)} />
             {/* This always render the react-roaster  */}
             <Route component={AsyncToaster(userAgent)} />
         </div>
