@@ -12,6 +12,7 @@ export let HEAD = ({ title, css, userAgent }) => {
         <Styler rules={css.join('')} />
 
         <Styler rules={require("-!raw-loader!react-redux-toastr/lib/css/react-redux-toastr.min.css")} />
+        <Styler rules={require("-!raw-loader!../../../containers/appbar/css/modal.lib.css")} />
     </head>)
 };
 

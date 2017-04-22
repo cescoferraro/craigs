@@ -9,10 +9,12 @@ import { connect } from "react-redux";
 import { APP_ACTIONS } from "../../store/actions";
 import { SecureAcess } from "./components/logout.button";
 import { AppBarStyle } from "./css/style";
+import { ModalStyle } from "./css/style";
 
 
 export const AppBar = compose(
     StyleConnect(AppBarStyle),
+    StyleConnect(ModalStyle),
     connect(state => (
         {
             firebase: state.firebase,

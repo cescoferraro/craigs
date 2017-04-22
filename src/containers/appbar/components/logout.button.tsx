@@ -8,7 +8,7 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import Toggle from 'material-ui/Toggle';
 import FlatButton from 'material-ui/FlatButton';
 import { compose } from "recompose"
-import { YourComponent } from "./modal"
+import { ModalButton } from "./modal.button"
 import { StyleConnect } from "../../../shared/components/StyleConnect";
 import { AppBarStyle } from "../css/style"
 
@@ -16,7 +16,7 @@ export const SecureAcess = compose(
     StyleConnect(AppBarStyle)
 )(({ relay }) => {
     return relay.firebase.get("auth") == null ?
-        <YourComponent />
+        <ModalButton />
         :
         <FlatButton label="LOOUT" />
 });
