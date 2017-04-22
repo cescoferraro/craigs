@@ -7,13 +7,12 @@ import { compose } from "recompose";
 import { StyleConnect } from "../../shared/components/StyleConnect";
 import { connect } from "react-redux";
 import { APP_ACTIONS } from "../../store/actions";
+import { LogoutButton } from "./components/logout.button";
+import { AppBarStyle } from "./css/style";
 
-import { LogoutButton } from "./logout.button";
-
-const css = require("./appbar.pcss");
 
 export const AppBar = compose(
-    StyleConnect(css),
+    StyleConnect(AppBarStyle),
     connect(state => (
         {
             firebase: state.firebase,
@@ -21,11 +20,10 @@ export const AppBar = compose(
         }
     ), APP_ACTIONS)
 )(({ location, LOGOUT, firebase }) => {
-    return location.pathname === "/jkfnds" ? null :
-        <MDAppBar
-            className={css.shell}
-            title={<span >Craigs </span>}
-            iconElementLeft={<IconButton><Pizza /></IconButton>}
-            iconElementRight={<LogoutButton relay={{ firebase, LOGOUT }} />}
-        />
+    return <MDAppBar
+        className={AppBarStyle.shell}
+        title={<span >Craigs </span>}
+        iconElementLeft={<IconButton><Pizza /></IconButton>}
+        iconElementRight={<LogoutButton relay={{ firebase, LOGOUT }} />}
+    />
 });

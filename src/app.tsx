@@ -5,7 +5,6 @@ import { AsyncHome } from "./containers/home/async";
 import { AsyncAppBar } from "./containers/appbar/async";
 import { AsyncToaster } from "./shared/components/Toaster/async";
 
-
 export const CraigsApp = ({ userAgent }) => {
     return (
         <div>
@@ -13,7 +12,7 @@ export const CraigsApp = ({ userAgent }) => {
             <Route component={AsyncAppBar(userAgent)} />
             <Route exact path="/" component={AsyncHome(userAgent)} />
             {/* This always render the react-roaster  */}
-            <Route component={AsyncToaster(userAgent)} />
-        </div>
+	    <Route component={AsyncToaster(userAgent)} />
+	</div>
     )
 };

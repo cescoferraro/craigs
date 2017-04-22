@@ -1,5 +1,5 @@
 import { bindActionCreators } from "redux";
-import { LOGOUT_ACTION } from "../containers/appbar/logout.epic";
+import { LOGOUT_ACTION } from "../containers/appbar/store/logout.epic";
 import { SEARCH_ACTION } from "../containers/home/store/search.actions";
 import { DISPLAY_SEARCH } from "../containers/home/store/adds.actions";
 
