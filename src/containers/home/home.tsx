@@ -14,7 +14,7 @@ export class HomeComponent extends React.Component<any, any>{
 
     constructor(props) {
         super(props)
-        this.props.SEARCH("")
+        this.props.SEARCH(" ")
     }
 
     render() {

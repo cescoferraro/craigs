@@ -8,13 +8,11 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import Toggle from 'material-ui/Toggle';
 import FlatButton from 'material-ui/FlatButton';
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
-import { LoginPopover } from "./login.popover"
 
 
-export const LogoutButton = ({ relay }) => {
+export const SecureAcess = ({ relay }) => {
     return relay.firebase.get("auth") == null ?
-
-        <LoginPopover></LoginPopover>
+        <FlatButton label="LOGIN" />
         : <IconMenu
             iconButtonElement={<IconButton><MoreVertIcon /></IconButton>} >
             <MenuItem>sdfnjksdf</MenuItem>

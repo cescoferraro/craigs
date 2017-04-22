@@ -7,7 +7,7 @@ import { compose } from "recompose";
 import { StyleConnect } from "../../shared/components/StyleConnect";
 import { connect } from "react-redux";
 import { APP_ACTIONS } from "../../store/actions";
-import { LogoutButton } from "./components/logout.button";
+import { SecureAcess } from "./components/logout.button";
 import { AppBarStyle } from "./css/style";
 
 
@@ -24,6 +24,7 @@ export const AppBar = compose(
         className={AppBarStyle.shell}
         title={<span >Craigs </span>}
         iconElementLeft={<IconButton><Pizza /></IconButton>}
-        iconElementRight={<LogoutButton relay={{ firebase, LOGOUT }} />}
+        iconClassNameRight={AppBarStyle.access}
+        iconElementRight={<SecureAcess relay={{ firebase, LOGOUT }} />}
     />
 });
