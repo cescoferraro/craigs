@@ -17,8 +17,6 @@ export const SecureAcess = compose(
 )(({ relay }) => {
     return relay.firebase.get("auth") == null ?
         <FlatButton label="LOGIN" />
-        : <IconMenu
-            iconButtonElement={<IconButton><MoreVertIcon /></IconButton>} >
-            <MenuItem>sdfnjksdf</MenuItem>
-        </IconMenu >
+        :
+        <FlatButton label="LOOUT" />
 });

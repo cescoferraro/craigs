@@ -12,8 +12,5 @@ export const Add = ({ addObject }: { addObject: add }) => {
             primaryText={addObject.title}
             secondaryText={addObject.description}
         >
-            <Chip
-            >
-                Text Chip
-        </Chip> </ListItem>);
+        </ListItem>);
 }
