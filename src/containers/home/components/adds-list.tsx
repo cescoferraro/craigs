@@ -13,7 +13,9 @@ export const AddsList = ({ searchAdds }) => {
                     <ListItem
                         leftAvatar={<Avatar src="http://thecatapi.com/api/images/get?format=src&type=gif" />}
                         primaryText={"Nothing Here"}
+
                         secondaryText={"Nothing here too"}
+
                     >
                     </ListItem> : null}
                 {searchAdds.map(add => (
