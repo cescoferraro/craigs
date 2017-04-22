@@ -21,10 +21,14 @@ export const AppBar = compose(
     ), APP_ACTIONS)
 )(({ location, LOGOUT, firebase }) => {
     return <MDAppBar
-        className={AppBarStyle.shell}
         title={<span >Craigs </span>}
         iconElementLeft={<IconButton><Pizza /></IconButton>}
-        iconClassNameRight={AppBarStyle.access}
+        iconStyleRight={{
+            backgroundColor: "red",
+            alignItems: "center",
+            display: "flex",
+            marginTop: "0px"
+        }}
         iconElementRight={<SecureAcess relay={{ firebase, LOGOUT }} />}
     />
 });

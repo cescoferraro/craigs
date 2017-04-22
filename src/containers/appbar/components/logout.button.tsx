@@ -8,13 +8,17 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import Toggle from 'material-ui/Toggle';
 import FlatButton from 'material-ui/FlatButton';
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
+import { compose } from "recompose"
 
-
-export const SecureAcess = ({ relay }) => {
+import { StyleConnect } from "../../../shared/components/StyleConnect";
+import { AppBarStyle } from "../css/style"
+export const SecureAcess = compose(
+    StyleConnect(AppBarStyle)
+)(({ relay }) => {
     return relay.firebase.get("auth") == null ?
         <FlatButton label="LOGIN" />
         : <IconMenu
             iconButtonElement={<IconButton><MoreVertIcon /></IconButton>} >
             <MenuItem>sdfnjksdf</MenuItem>
         </IconMenu >
-};
+});
