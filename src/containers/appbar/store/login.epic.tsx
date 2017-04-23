@@ -3,6 +3,7 @@ import { Observable } from "rxjs";
 import { getFirebase } from "react-redux-firebase";
 import { push } from "connected-react-router";
 import { LOGIN_ACTION_NAME } from "./login.action"
+import { SEARCH_OWN_ADDS_BY_EMAIL_ACTION } from "../../dashboard/store/own.adds.action";
 
 export const loginEpic = action$ =>
     action$
@@ -15,5 +16,6 @@ export const loginEpic = action$ =>
             )
                 .catch(() => {
                     return Observable.empty()
-                }).mapTo(push("/dashboard"))
-        );
+                }).flatMap(data => ([
+                    SEARCH_OWN_ADDS_BY_EMAIL_ACTION(action.payload.email),
+                    push("/dashboard")])))
