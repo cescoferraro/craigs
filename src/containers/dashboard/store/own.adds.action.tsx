@@ -1,9 +1,9 @@
 
 export const SEARCH_OWN_ADDS_BY_EMAIL_ACTION_NAME = "OWD_ADDS";
-export function SEARCH_OWN_ADDS_BY_EMAIL_ACTION(email: string): Action<any> {
+export function SEARCH_OWN_ADDS_BY_EMAIL_ACTION(): Action<any> {
     return {
         type: SEARCH_OWN_ADDS_BY_EMAIL_ACTION_NAME,
-        payload: email
+        payload: "hello"
     }
 }
 

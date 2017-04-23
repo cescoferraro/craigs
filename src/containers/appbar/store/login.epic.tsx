@@ -17,5 +17,4 @@ export const loginEpic = action$ =>
                 .catch(() => {
                     return Observable.empty()
                 }).flatMap(data => ([
-                    SEARCH_OWN_ADDS_BY_EMAIL_ACTION(action.payload.email),
                     push("/dashboard")])))

@@ -13,13 +13,10 @@ export const OwnAddsEpic = action$ =>
                 getFirebase().database().ref("adds").once("value")
             ).catch(() => {
                 return Observable.empty()
-            }).map((all: any) =>
-                _.pickBy(all.val(), state => state.author === action.payload)
-                ).filter((value: any) => {
-                    console.log(value)
-                    return value
-                })
-                .map(
+            }).map((all: any) => {
+                let email = getFirebase().auth().currentUser.email
+                return _.pickBy(all.val(), state => state.author === email)
+            }).map(
                 payload => SET_OWN_ADDS_ACTION(payload)
                 )
         });

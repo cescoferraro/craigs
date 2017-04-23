@@ -21,6 +21,8 @@ import {
 export class Dashboard extends React.Component<any, any>{
     constructor(props) {
         super(props)
+        console.log(this.props)
+        this.props.OWN_ADDS()
     }
 
     render() {
@@ -28,10 +30,6 @@ export class Dashboard extends React.Component<any, any>{
             ? <h2>Loading</h2>
             :
             <div>
-                {this.props.auth === null ? null :
-                    () => {
-                        this.props.OWN_ADDS(this.props.firebase.auth().currentUser.email)
-                    }}
                 <h2
                     onClick={() => {
                         console.log(this.props.OwnAddsReducer)
@@ -41,7 +39,7 @@ export class Dashboard extends React.Component<any, any>{
                     Get my Adds</h2>
                 {Object.keys(this.props.OwnAddsReducer).map(
                     each =>
-                        <h2 key={Math.random()}>{each}</h2>
+                        <h2 key={Math.random()}>{this.props.OwnAddsReducer[each].title}</h2>
 
                 )}
             </div>
