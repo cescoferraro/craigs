@@ -16,7 +16,7 @@ export const SecureAcess = compose(
     StyleConnect(AppBarStyle)
 )(({ relay }) => {
     return relay.firebase.get("auth") == null ?
-        <ModalButton />
+        <ModalButton onSubmit={() => { console.log("dsfsd") }} />
         :
         <FlatButton label="LOOUT" />
 });

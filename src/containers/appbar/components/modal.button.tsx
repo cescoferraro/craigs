@@ -1,6 +1,8 @@
 import * as React from "react"
 import { ModalComponent } from "./modal.component"
 import { modal } from 'react-redux-modal' // The modal emitter
+import FlatButton from 'material-ui/FlatButton';
+
 export class ModalButton extends React.Component<any, any> {
     constructor(props) {
         super(props);
@@ -8,7 +10,7 @@ export class ModalButton extends React.Component<any, any> {
 
     addModal() {
         modal.add(ModalComponent, {
-            title: 'This is my modal',
+            title: 'Welcome to Craigs!',
             size: 'medium',
             closeOnOutsideClick: true,
             hideTitleBar: false,
@@ -17,6 +19,6 @@ export class ModalButton extends React.Component<any, any> {
     }
 
     render() {
-        return <button onClick={this.addModal.bind(this)}>Add modal</button>;
+        return <FlatButton label="LOGIN" onClick={this.addModal.bind(this)} />
     }
 }

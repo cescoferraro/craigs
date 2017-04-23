@@ -7,11 +7,9 @@ import { APP_ACTIONS } from "../../store/actions"
 import { AddsList } from "./components/adds-list";
 import { SearchInput } from "./components/adds-search";
 import { HomeStyle } from "./css/style";
-import { ModalStyle } from "../appbar/css/style";
 import ReduxModal from 'react-redux-modal'
 
 @withStyles(HomeStyle)
-@withStyles(ModalStyle)
 @connect(state => ({ AddsReducer: state.AddsReducer }), APP_ACTIONS)
 export class HomeComponent extends React.Component<any, any>{
 
@@ -24,7 +22,7 @@ export class HomeComponent extends React.Component<any, any>{
         return <div className={HomeStyle.container}>
             <SearchInput search={this.props.SEARCH} />
             <AddsList searchAdds={this.props.AddsReducer} />
-            <ReduxModal className={ModalStyle.modal} />
+            <ReduxModal />
         </div>
 
     }

@@ -9,6 +9,7 @@ import { connect } from "react-redux";
 import { APP_ACTIONS } from "../../store/actions";
 import { SecureAcess } from "./components/logout.button";
 import { AppBarStyle } from "./css/style";
+
 import { ModalStyle } from "./css/style";
 
 
@@ -26,7 +27,6 @@ export const AppBar = compose(
         title={<span >Craigs </span>}
         iconElementLeft={<IconButton><Pizza /></IconButton>}
         iconStyleRight={{
-            backgroundColor: "red",
             alignItems: "center",
             display: "flex",
             marginTop: "0px"
