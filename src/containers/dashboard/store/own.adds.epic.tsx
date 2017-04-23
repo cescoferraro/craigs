@@ -9,18 +9,17 @@ export const OwnAddsEpic = action$ =>
     action$
         .ofType(SEARCH_OWN_ADDS_BY_EMAIL_ACTION_NAME)
         .mergeMap(action => {
-            return () => {
-                Observable.fromPromise(
-                    getFirebase().database().ref("adds").once("value")
-                ).catch(() =}> {
-                    return Observable.empty()
-                }).map((all: any) =>
-                    _.pickBy(all.val(), state => state.author === action.payload)
-        ).filter((value: any) => {
-            console.log(value)
-            return value
-        })
-        .map(
-        payload => SET_OWN_ADDS_ACTION(payload)
-        )
+            return Observable.fromPromise(
+                getFirebase().database().ref("adds").once("value")
+            ).catch(() => {
+                return Observable.empty()
+            }).map((all: any) =>
+                _.pickBy(all.val(), state => state.author === action.payload)
+                ).filter((value: any) => {
+                    console.log(value)
+                    return value
+                })
+                .map(
+                payload => SET_OWN_ADDS_ACTION(payload)
+                )
         });
