@@ -2,15 +2,12 @@ import * as React from "react";
 import MDAppBar from "material-ui/AppBar";
 import IconButton from "material-ui/IconButton";
 import Pizza from "material-ui/svg-icons/maps/local-pizza";
-import ArrowBack from "material-ui/svg-icons/action/exit-to-app";
 import { compose } from "recompose";
 import { StyleConnect } from "../../shared/components/StyleConnect";
 import { connect } from "react-redux";
 import { APP_ACTIONS } from "../../store/actions";
 import { SecureAcess } from "./components/logout.button";
-import { AppBarStyle } from "./css/style";
-
-import { ModalStyle } from "./css/style";
+import { AppBarStyle, ModalStyle } from "./css/style";
 
 
 export const AppBar = compose(

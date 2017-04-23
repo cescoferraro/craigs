@@ -3,6 +3,7 @@ import { createAsyncComponent } from "react-async-component";
 import { Route, IndexRoute, Router, Switch, Link } from "react-router-dom";
 import { AsyncHome } from "./containers/home/async";
 import { AsyncAppBar } from "./containers/appbar/async";
+import { AsyncDashboard } from "./containers/dashboard/async";
 import { AsyncToaster } from "./shared/components/Toaster/async";
 import ReduxModal from 'react-redux-modal'
 
@@ -12,6 +13,7 @@ export const CraigsApp = ({ userAgent }) => {
             {/* This always render the AppBar*/}
             <Route component={AsyncAppBar(userAgent)} />
             <Route exact path="/" component={AsyncHome(userAgent)} />
+            <Route exact path="/dashboard" component={AsyncDashboard(userAgent)} />
             {/* This always render the react-roaster  */}
             <Route component={AsyncToaster(userAgent)} />
         </div>

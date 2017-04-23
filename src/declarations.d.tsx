@@ -8,8 +8,8 @@ interface Action<T> {
     meta?: any;
 }
 
-type add = {
+interface add {
     title: string;
-    price: number;
+    price?: number;
     description: string;
 }

@@ -19,7 +19,10 @@ export const LoginForm = compose(
         <br />
         <Field
             fullWidth={true}
-            name="password" type="password" component={TextField} hintText="Password" />
+            name="password"
+            type="password"
+            component={TextField}
+            hintText="Password" />
         <br />
         <RaisedButton
             primary={true}
