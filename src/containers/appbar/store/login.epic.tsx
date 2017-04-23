@@ -15,5 +15,5 @@ export const loginEpic = action$ =>
             )
                 .catch(() => {
                     return Observable.empty()
-                }).mapTo(push("/dashboard/jobs"))
+                }).mapTo(push("/dashboard"))
         );

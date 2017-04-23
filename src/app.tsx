@@ -4,6 +4,7 @@ import { Route, IndexRoute, Router, Switch, Link } from "react-router-dom";
 import { AsyncHome } from "./containers/home/async";
 import { AsyncAppBar } from "./containers/appbar/async";
 import { AsyncToaster } from "./shared/components/Toaster/async";
+import ReduxModal from 'react-redux-modal'
 
 export const CraigsApp = ({ userAgent }) => {
     return (
@@ -12,7 +13,7 @@ export const CraigsApp = ({ userAgent }) => {
             <Route component={AsyncAppBar(userAgent)} />
             <Route exact path="/" component={AsyncHome(userAgent)} />
             {/* This always render the react-roaster  */}
-	    <Route component={AsyncToaster(userAgent)} />
-	</div>
+            <Route component={AsyncToaster(userAgent)} />
+        </div>
     )
 };
