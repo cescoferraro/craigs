@@ -8,15 +8,15 @@ import * as _ from "lodash"
 export const OwnAddsEpic = action$ =>
     action$
         .ofType(SEARCH_OWN_ADDS_BY_EMAIL_ACTION_NAME)
-        .mergeMap(action => {
-            return Observable.fromPromise(
+        .mergeMap(action =>
+            (Observable.fromPromise(
                 getFirebase().database().ref("adds").once("value")
-            ).catch(() => {
-                return Observable.empty()
-            }).map((all: any) => {
-                let email = getFirebase().auth().currentUser.email
-                return _.pickBy(all.val(), state => state.author === email)
-            }).map(
-                payload => SET_OWN_ADDS_ACTION(payload)
-                )
-        });
+            ).map((all: any) => {
+                let currentUser = getFirebase().auth().currentUser
+                return _.pickBy(all.val(), state => state.author === currentUser.email)
+            }).map(payload => SET_OWN_ADDS_ACTION(payload)).catch((err) => {
+                console.log(err)
+                return Observable.of(push("/"))
+            })
+            )
+        );

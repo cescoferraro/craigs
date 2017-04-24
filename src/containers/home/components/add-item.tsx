@@ -5,12 +5,14 @@ import Avatar from 'material-ui/Avatar';
 import Chip from 'material-ui/Chip';
 
 export const Add = ({ addObject }: { addObject: add }) => {
-    return (
+    console.log(addObject)
+    let old = <ListItem
+        leftAvatar={<Avatar
+            src="http://thecatapi.com/api/images/get?format=src&type=gif" />}
+        primaryText={addObject.title}
+        secondaryText={addObject.description}>
+        <p>{addObject.author}</p>
+    </ListItem>
+    return (old);
 
-        <ListItem
-            leftAvatar={<Avatar src="http://thecatapi.com/api/images/get?format=src&type=gif" />}
-            primaryText={addObject.title}
-            secondaryText={addObject.description}
-        >
-        </ListItem>);
 }

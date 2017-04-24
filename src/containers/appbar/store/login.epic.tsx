@@ -17,4 +17,4 @@ export const loginEpic = action$ =>
                 .catch(() => {
                     return Observable.empty()
                 }).flatMap(data => ([
-                    push("/dashboard")])))
+                    push("/dashboard/adds")])))

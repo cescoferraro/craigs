@@ -8,6 +8,10 @@ import { AddsList } from "./components/adds-list";
 import { SearchInput } from "./components/adds-search";
 import { HomeStyle } from "./css/style";
 import ReduxModal from 'react-redux-modal'
+import { TabsExampleSwipeable } from "../../shared/components/tabs/tabs";
+import { Switch, Route } from "react-router-dom";
+
+
 
 @withStyles(HomeStyle)
 @connect(state => ({ AddsReducer: state.AddsReducer }), APP_ACTIONS)
@@ -19,11 +23,28 @@ export class HomeComponent extends React.Component<any, any>{
     }
 
     render() {
-        return <div className={HomeStyle.container}>
-            <SearchInput search={this.props.SEARCH} />
-            <AddsList searchAdds={this.props.AddsReducer} />
-            <ReduxModal />
+        return <div>
+            <Switch>
+                <TabsExampleSwipeable>
+                    <Route exact path="/"
+                        render={() => {
+                            return <div className={HomeStyle.container}>
+                                <SearchInput search={this.props.SEARCH} />
+                                <AddsList searchAdds={this.props.AddsReducer} />
+                            </div>
+                        }}
+                    />
+                    <Route exact path="/blog"
+                        render={() => {
+                            return <div className={HomeStyle.container}>
+                                <h2>BLOG</h2>
+                            </div>
+                        }} />
+                </TabsExampleSwipeable>
+            </Switch>
+            <ReduxModal></ReduxModal>
         </div>
+
 
     }
 

@@ -10,6 +10,8 @@ interface Action<T> {
 
 interface add {
     title: string;
+    author?: string;
+    tags?: string[];
     price?: number;
     description: string;
 }

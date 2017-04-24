@@ -1,47 +1,63 @@
 import * as React from "react";
 import { connect } from "react-redux"
 import { APP_ACTIONS } from "../../store/actions";
+import { Add } from "../home/components/add-item";
+import ContentAdd from 'material-ui/svg-icons/content/add';
+import Refresh from 'material-ui/svg-icons/navigation/refresh';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import RaisedButton from 'material-ui/RaisedButton';
 
-import { pathToJS } from 'react-redux-firebase'
-import {
-    firebaseConnect,
-    isLoaded,
-    isEmpty,
-    dataToJS
-} from 'react-redux-firebase'
+import { Switch, Route } from "react-router-dom";
+import { StyleConnect } from "../../shared/components/StyleConnect/index";
+import { DashboardStyle } from "./css/style";
+import { AddAdd } from "./components/add.add";
 
-@firebaseConnect([])
+import ReduxModal from 'react-redux-modal'
+import { TabsExampleSwipeable } from "../../shared/components/tabs/tabs";
+import { DashboardTab } from "./components/tabs/tabs";
+
+@StyleConnect(DashboardStyle)
 @connect(({ firebase, OwnAddsReducer }) => ({
-    authError: pathToJS(firebase, 'authError'),
-    auth: pathToJS(firebase, 'auth'),
-    profile: pathToJS(firebase, 'profile'),
-    user: pathToJS(firebase, 'User'),
     OwnAddsReducer: OwnAddsReducer
 }), APP_ACTIONS)
 export class Dashboard extends React.Component<any, any>{
     constructor(props) {
         super(props)
-        console.log(this.props)
+        this.getAdds()
+    }
+
+    getAdds() {
         this.props.OWN_ADDS()
     }
 
     render() {
-        return !isLoaded(this.props.auth)
-            ? <h2>Loading</h2>
-            :
-            <div>
-                <h2
-                    onClick={() => {
-                        console.log(this.props.OwnAddsReducer)
-                        this.props.OWN_ADDS(this.props.firebase.auth().currentUser.email)
-                    }} >
 
-                    Get my Adds</h2>
-                {Object.keys(this.props.OwnAddsReducer).map(
-                    each =>
-                        <h2 key={Math.random()}>{this.props.OwnAddsReducer[each].title}</h2>
+        return <div>
+            <Switch>
+                <DashboardTab>
+                    <Route exact path="/dashboard/adds"
+                        render={() => {
+                            return <div>   {Object.keys(this.props.OwnAddsReducer).map(
+                                each => (<Add
+                                    key={Math.random()}
+                                    addObject={this.props.OwnAddsReducer[each]} />))}
+                            </div>
+                        }}
+                    />
+                </DashboardTab>
+            </Switch>
 
-                )}
-            </div>
+            <FloatingActionButton
+                onClick={this.getAdds.bind(this)}
+                secondary={true}
+                className={DashboardStyle.refresh}>
+                <Refresh />
+            </FloatingActionButton>
+            <AddAdd
+                customStyle={DashboardStyle.add}
+            ></AddAdd>
+            <ReduxModal />
+
+        </div>
     }
 }
