@@ -6,18 +6,15 @@ import ContentAdd from 'material-ui/svg-icons/content/add';
 import Refresh from 'material-ui/svg-icons/navigation/refresh';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import RaisedButton from 'material-ui/RaisedButton';
-
 import { Switch, Route } from "react-router-dom";
 import { StyleConnect } from "../../shared/components/StyleConnect/index";
 import { DashboardStyle } from "./css/style";
 import { AddAdd } from "./components/add.add";
-
 import ReduxModal from 'react-redux-modal'
-import { TabsExampleSwipeable } from "../../shared/components/tabs/tabs";
 import { DashboardTab } from "./components/tabs/tabs";
 
 @StyleConnect(DashboardStyle)
-@connect(({ firebase, OwnAddsReducer }) => ({
+@connect(({ OwnAddsReducer }) => ({
     OwnAddsReducer: OwnAddsReducer
 }), APP_ACTIONS)
 export class Dashboard extends React.Component<any, any>{
@@ -37,25 +34,28 @@ export class Dashboard extends React.Component<any, any>{
                 <DashboardTab>
                     <Route exact path="/dashboard/adds"
                         render={() => {
-                            return <div>   {Object.keys(this.props.OwnAddsReducer).map(
-                                each => (<Add
-                                    key={Math.random()}
-                                    addObject={this.props.OwnAddsReducer[each]} />))}
+                            return <div>
+
+
+                                <FloatingActionButton
+                                    onClick={this.getAdds.bind(this)}
+                                    secondary={true}
+                                    className={DashboardStyle.refresh}>
+                                    <Refresh />
+                                </FloatingActionButton>
+                                <AddAdd
+                                    customStyle={DashboardStyle.add}
+                                ></AddAdd>
+                                {Object.keys(this.props.OwnAddsReducer).map(
+                                    each => (<Add
+                                        key={Math.random()}
+                                        addObject={this.props.OwnAddsReducer[each]} />))}
                             </div>
                         }}
                     />
                 </DashboardTab>
             </Switch>
 
-            <FloatingActionButton
-                onClick={this.getAdds.bind(this)}
-                secondary={true}
-                className={DashboardStyle.refresh}>
-                <Refresh />
-            </FloatingActionButton>
-            <AddAdd
-                customStyle={DashboardStyle.add}
-            ></AddAdd>
             <ReduxModal />
 
         </div>

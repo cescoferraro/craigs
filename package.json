@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo 333 && exit 1",
+    "dll": "webpack --config internal/webpack/vendor.js",
     "production": "NODE_ENV=production  webpack -p --config internal/webpack/prod.js",
     "start": "node hot.js"
   },
@@ -52,7 +53,8 @@
     "rxjs": "^5.2.0",
     "serviceworker-webpack-plugin": "^0.1.8",
     "slick-carousel": "^1.6.0",
-    "spectacle": "^2.0.0"
+    "spectacle": "^2.0.0",
+    "tslint-react": "^3.0.0"
   },
   "devDependencies": {
     "@types/classnames": "0.0.32",
