@@ -6,6 +6,7 @@ import { Renderer } from "./renderer";
 import { unmountComponentAtNode } from "react-dom";
 injectTapEventPlugin();
 
+
 Renderer(CraigsApp({ userAgent: navigator.userAgent }));
 
 if (module.hot) {

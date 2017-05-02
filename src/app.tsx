@@ -9,7 +9,6 @@ import ReduxModal from 'react-redux-modal'
 
 
 
-
 export const CraigsApp = ({ userAgent }) => {
     return (
         <div>

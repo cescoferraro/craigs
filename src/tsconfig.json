@@ -14,5 +14,9 @@
     "typeRoots": [
       "node_modules@types"
     ]
-  }
+  },
+  "rules": {
+    "curly": true
+  },
+  "rulesDirectory": [  ]
 }

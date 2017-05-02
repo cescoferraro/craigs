@@ -5,3 +5,4 @@ www/
 vendor/
 /node_modules/
 /src/#*#
+*.log

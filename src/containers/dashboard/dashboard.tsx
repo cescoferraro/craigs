@@ -9,9 +9,10 @@ import RaisedButton from 'material-ui/RaisedButton';
 import { Switch, Route } from "react-router-dom";
 import { StyleConnect } from "../../shared/components/StyleConnect/index";
 import { DashboardStyle } from "./css/style";
-import { AddAdd } from "./components/add.add";
 import ReduxModal from 'react-redux-modal'
 import { DashboardTab } from "./components/tabs/tabs";
+import { AddsModalComponent } from "./components/modal.component"
+import { modal } from 'react-redux-modal'
 
 @StyleConnect(DashboardStyle)
 @connect(({ OwnAddsReducer }) => ({
@@ -22,30 +23,38 @@ export class Dashboard extends React.Component<any, any>{
         super(props)
         this.getAdds()
     }
-
     getAdds() {
         this.props.OWN_ADDS()
     }
 
     render() {
-
         return <div>
             <Switch>
                 <DashboardTab>
                     <Route exact path="/dashboard/adds"
                         render={() => {
-                            return <div>
-
-
+                            return <div className={DashboardStyle.container}
+                                id="dashboard/adds">
                                 <FloatingActionButton
                                     onClick={this.getAdds.bind(this)}
                                     secondary={true}
                                     className={DashboardStyle.refresh}>
                                     <Refresh />
                                 </FloatingActionButton>
-                                <AddAdd
-                                    customStyle={DashboardStyle.add}
-                                ></AddAdd>
+
+                                <FloatingActionButton
+                                    className={DashboardStyle.add}
+                                    onClick={() => {
+                                        modal.add(AddsModalComponent, {
+                                            title: 'Add an add to Craigs!',
+                                            size: 'medium',
+                                            closeOnOutsideClick: true,
+                                            hideTitleBar: false,
+                                            hideCloseButton: false
+                                        })
+                                    }}>
+                                    <ContentAdd />
+                                </FloatingActionButton >
                                 {Object.keys(this.props.OwnAddsReducer).map(
                                     each => (<Add
                                         key={Math.random()}
@@ -55,9 +64,7 @@ export class Dashboard extends React.Component<any, any>{
                     />
                 </DashboardTab>
             </Switch>
-
             <ReduxModal />
-
         </div>
     }
 }

@@ -11,6 +11,8 @@ import ReduxModal from 'react-redux-modal'
 import { TabsExampleSwipeable } from "../../shared/components/tabs/tabs";
 import { Switch, Route } from "react-router-dom";
 
+import { toastr } from 'react-redux-toastr'
+
 
 
 @withStyles(HomeStyle)
@@ -29,6 +31,9 @@ export class HomeComponent extends React.Component<any, any>{
                     <Route exact path="/"
                         render={() => {
                             return <div className={HomeStyle.container}>
+                                <button
+                                    onClick={() => toastr.success('The title', 'The message')}
+                                    type="button">Toastr Success</button>
                                 <SearchInput search={this.props.SEARCH} />
                                 <AddsList searchAdds={this.props.AddsReducer} />
                             </div>
