@@ -13,6 +13,9 @@ let ReplacebleEpicMiddleware = createEpicMiddleware(RootEpic);
 
 
 export const clientStore = (history = {}) => {
+    console.log(reactReduxFirebase)
+    console.log("djkfnsdjkf")
+    alert("jfknsdf")
     const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
     let store = FirebaseStoreCreator(
         connectRouter(history)(allReducers),

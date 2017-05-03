@@ -44,16 +44,16 @@ let client = [
 
 // HOT-MODULE-REPLACEMENT
 if (process.env.NODE_ENV === "production") {
-	client.push(new webpack.optimize.CommonsChunkPlugin(
-		{
-			name: 'vendor',
-			chunks: ['app', 'libs'],
-			filename: 'vendor.js'
-		}));
-	client.push(new FaviconsWebpackPlugin({
-		logo: './src/shared/icon/favicon.jpg',
-		prefix: 'icons/'
-	}));
+	// client.push(new webpack.optimize.CommonsChunkPlugin(
+	// 	{
+	// 		name: 'vendor',
+	// 		chunks: ['app', 'libs'],
+	// 		filename: 'vendor.js'
+	// 	}));
+	// client.push(new FaviconsWebpackPlugin({
+	// 	logo:path.basename('src/shared/icon/favicon.jpg'),
+	// 	prefix: 'icons/'
+	// }));
 	client.push(new StatsWebpackPlugin('stats.json', {
 		chunkModules: true,
 		exclude: [/node_modules/]

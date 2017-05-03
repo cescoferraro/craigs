@@ -6,5 +6,5 @@ app.disable('x-powered-by');
 app.use(morgan("combined"));
 app.use(compression());
 app.use(express.static("www"));
-app.use(require("./shared/middleware").default());
+app.use(require("./middleware").default());
 app.listen(4000);

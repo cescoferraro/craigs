@@ -11,14 +11,14 @@ import { createBrowserHistory } from "history";
 import { ConnectedRouter as ReduxRouterProvider } from "connected-react-router";
 
 
-export const Renderer = NextEatApp => {
+export const Renderer = NextCraigsApp => {
     const history = createBrowserHistory();
     let app = <HMRProvider>
         <UniversalStyleProvider onInsertCss={styles => styles._insertCss()}>
             <MuiThemeProvider muiTheme={getMuiTheme({ userAgent: navigator.userAgent })}>
                 <ReduxProvider store={clientStore(history)}>
                     <ReduxRouterProvider history={history}>
-                        {NextEatApp}
+                        {NextCraigsApp}
                     </ReduxRouterProvider>
                 </ReduxProvider>
             </MuiThemeProvider>
