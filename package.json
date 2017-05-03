@@ -127,7 +127,7 @@
     "tslint-loader": "3.3.0",
     "typescript": "2.1.4",
     "url-loader": "0.5.7",
-    "webpack": "2.2.0",
+    "webpack": "2.4.1",
     "webpack-chunk-hash": "^0.3.0",
     "webpack-dashboard": "0.2.1",
     "webpack-dev-middleware": "1.9.0",

@@ -18,7 +18,7 @@ if (process.env.NODE_ENV !== "production") {
 
 let stats = {
 	chunks: false,
-	context: "../../src/"
+	context: __dirname+ "src/"
 };
 
 let devtools = env === "production" ? "cheap-module-source-map" : "cheap-module-eval-source-map"
