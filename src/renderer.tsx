@@ -13,16 +13,8 @@ import { ConnectedRouter as ReduxRouterProvider } from "connected-react-router";
 
 export const Renderer = NextEatApp => {
     const history = createBrowserHistory();
-    let app = <HMRProvider>
-        <UniversalStyleProvider onInsertCss={styles => styles._insertCss()}>
-            <MuiThemeProvider muiTheme={getMuiTheme({ userAgent: navigator.userAgent })}>
-                <ReduxProvider store={clientStore(history)}>
-                    <ReduxRouterProvider history={history}>
-                        {NextEatApp}
-                    </ReduxRouterProvider>
-                </ReduxProvider>
-            </MuiThemeProvider>
-        </UniversalStyleProvider>
-    </HMRProvider>;
+    let app =
+        <div>hehe</div>
+        ;
     render(app, document.getElementById("container"))
 };

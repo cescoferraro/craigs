@@ -1,48 +1,39 @@
-import *  as injectTapEventPlugin from "react-tap-event-plugin";
-import { createStore } from "redux";
 import * as React from "react";
-import { CraigsApp } from "./app";
-import * as ReactDOMServer from "react-dom/server";
-import { HTML } from "./shared/components/html/html";
-import createServerRenderContext from "react-router/createServerRenderContext";
-import { Provider } from "react-redux";
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import getMuiTheme from "material-ui/styles/getMuiTheme";
-import { UniversalStyleProvider } from "./shared/components/UniversalStyleProvider";
-import { StyleRoot } from "radium";
-import { withAsyncComponents } from "react-async-component";
-import { StaticRouter } from "react-router-dom";
-injectTapEventPlugin();
-
+import { AsyncComponentProvider, createAsyncContext } from 'react-async-component'
+import asyncBootstrapper from 'react-async-bootstrapper'
+import * as serialize from 'serialize-javascript'
+import { renderToString } from 'react-dom/server'
+import MyApp from "./shared/components/MyApp"
 
 
 
 export default () => (request, response) => {
-    const context = createServerRenderContext();
-    const result = context.getResult();
-    let the = createStore((state, action) => {
-        return state
-    }, {});
-    let css = []; // CSS for all rendered React compone, reduxDevTools
-    // nts
-    let userAgent = request.headers['user-agent'];
-    let ServerApp =
-        <UniversalStyleProvider onInsertCss={styles => css.push(styles._getCss())}>
-            <MuiThemeProvider muiTheme={getMuiTheme({ userAgent: userAgent })}>
-                <Provider store={the}>
-                    <StaticRouter location={request.url} context={context}>
-                        <CraigsApp userAgent={userAgent} />
-                    </StaticRouter>
-                </Provider>
-            </MuiThemeProvider>
-        </UniversalStyleProvider>;
+    const asyncContext = createAsyncContext()
+    const app = (
+        <AsyncComponentProvider asyncContext={asyncContext}>
+            <MyApp />
+        </AsyncComponentProvider>
+    )
 
+    asyncBootstrapper(app).then(() => {
+        const appString = renderToString(app)
+        const asyncState = asyncContext.getState()
 
-    withAsyncComponents(ServerApp)
-        .then((result) => {
-            response.send("<!DOCTYPE html>" +
-                ReactDOMServer.renderToStaticMarkup(
-                    <HTML userAgent={userAgent} css={css} result={result} />
-                ));
-        });
+        const html = `
+        <html>
+          <head>
+            <title>Example</title>
+          </head>
+          <body>
+            <div id="app">${appString}</div>
+            <script type="text/javascript">
+              // Serialise the state into the HTML response 👇
+              window.ASYNC_COMPONENTS_STATE = ${serialize(asyncState)}
+            </script>
+          </body>
+        </html>
+`
+
+        response.send(html)
+    })
 };
